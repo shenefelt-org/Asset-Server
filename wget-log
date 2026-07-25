@@ -1,0 +1,11 @@
+--2026-07-24 22:17:42--  https://downloads.1password.com/linux/keys/1password.asc
+Resolving downloads.1password.com (downloads.1password.com)... 2600:9000:263e:d400:b:2f32:9000:93a1, 2600:9000:263e:5e00:b:2f32:9000:93a1, 2600:9000:263e:b600:b:2f32:9000:93a1, ...
+Connecting to downloads.1password.com (downloads.1password.com)|2600:9000:263e:d400:b:2f32:9000:93a1|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2964 (2.9K) [text/plain]
+Saving to: ‘STDOUT’
+
+-                               0%[                                               ]       0  --.-KB/s               -                             100%[==============================================>]   2.89K  --.-KB/s    in 0s      
+
+2026-07-24 22:17:42 (324 MB/s) - written to stdout [2964/2964]
+
