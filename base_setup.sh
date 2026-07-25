@@ -31,6 +31,7 @@ PACKAGES=(
   "ufw"
   "samba"
   "acl"
+  "btop"
 )
 
 printf "Installing system packages... running update first\n"
@@ -56,10 +57,6 @@ setfacl -R -m u:"$REAL_USER":rwx /srv/
 printf "Setting up file share directory and ACLs...\n"
 mkdir -p /srv/f_share/
 
-printf "Populating file share with assets from assets.shenefelt.org...\n"
-# '-f' makes curl exit with code 22 on 404/500 errors so tar doesn't attempt to extract an HTML error page
-curl -fsSL https://assets.shenefelt.org/setup.tar.gz | tar -xz -C /srv/f_share
-printf "Successfully downloaded and extracted assets.\n\n"
 
 printf "Creating sharedfiles group for Samba Server...\n"
 # Safely create group if it doesn't exist (prevents script crash on re-runs)
@@ -76,8 +73,8 @@ usermod -aG sharedfiles "$REAL_USER"
 printf "Success! Samba share user '%s' added to 'sharedfiles' group.\n\n" "$REAL_USER"
 
 OTHER_SCRIPTS=(
-  "/srv/f_share/assets/setup_neovim_with_lazyvim.sh"
-  "/srv/f_share/assets/install-1pass-beta.sh"
+  "/srv/assets/setup_neovim_with_lazyvim.sh"
+  "/srv/assets/install-1pass-beta.sh"
 )
 
 # Run external scripts safely
@@ -95,5 +92,5 @@ done
 echo "System setup complete for $REAL_USER!"
 
 printf "Cleaning up temporary files...\n"
-rm -rf /srv/f_share/assets
+rm -rf /srv/assets
 printf "Temporary files cleanup complete.\n"
