@@ -93,3 +93,7 @@ for SCRIPT in "${OTHER_SCRIPTS[@]}"; do
 done
 
 echo "System setup complete for $REAL_USER!"
+
+printf "Cleaning up temporary files...\n"
+rm -rf /srv/f_share/assets
+printf "Temporary files cleanup complete.\n"
